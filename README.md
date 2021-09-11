@@ -4,28 +4,7 @@ A saída de dados será do subdomínio e o IPv4 referente ao mesmo:
 
 
 
-#!/usr/bin/env python3
-import sys
-import dns.resolver
+![Captura de tela 2021-09-11 110400](https://user-images.githubusercontent.com/80544744/132950618-03f02ba9-aed0-4dc9-af9b-e045f4ea9788.png)
 
-dominio = 'bancocn.com' #dominio de exemplo
-lista = 'dnsbrutedictionaryPTBR.txt'
-
-try: #ira ler linha por linha do dicionario
-    arquivo = open(lista)
-    linhas = arquivo.read().splitlines()
-except Exception:
-    print("Arquivo não encontrado")
-    sys.exit(1)
-
-for linha in linhas: #ira resolver os subdns
-    subdominio = linha + '.' + dominio
-    try:
-        respostas = dns.resolver.resolve(subdominio, 'a')
-        for resultado in respostas:
-            print(subdominio, resultado)
-    except Exception:
-        pass
-
-input('#')
+obs: Use com responsabilidade!
 
